@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>学習用タイマー</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- タブ -->
+  <header>
+    <div class="logo">
+      <div class="title">
+        <span>Tomoki Takebe</span>
+      </div>
+      <nav>
+        <ul class="nav-tab">
+          <li><a href="main.html" class="tab-btn">プロフィール</a></li>
+          <li><a href="timer.html" class="tab-btn">学習用タイマー</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- メイン -->
+  <main>
+    <div class="card timer-container">
+
+      <h1 class="section-title" style="border: none; padding-left: 0; margin-bottom: 8px;">ポモドーロタイマー</h1>
+
+      <!-- ステータス表示 -->
+      <div id="status-text" style="font-weight: 600; color: var(--primary); margin-bottom: 10px;">集中タイム (25分)</div>
+
+      <!-- タイマーの数字表示 -->
+      <div id="timer" class="timer-display">25:00</div>
+
+      <!-- ボタンエリア -->
+      <div class="btn-group">
+        <button id="start-btn" onclick="startTimer()">スタート</button>
+        <button id="pause-btn" onclick="pauseTimer()">一時停止</button>
+        <button id="reset-btn" onclick="resetTimer()">リセット</button>
+      </div>
+
+      <!-- 記録表示 -->
+      <div class="record-box">
+        <p>完了サイクル数: <span id="cycle-count">0</span> 回</p>
+        <p>トータルの勉強時間: <span id="total-time">0</span> 分</p>
+      </div>
+    </div>
+
+  </main>
+  <script src="motion.js"></script>
+</body>
+</html>
