@@ -27,7 +27,7 @@ function updateDisplay() {
     document.getElementById("timer").textContent = minText + ":" + secText;
 }
 
-// 1秒ごとに呼ばれる処理
+// 1秒ごとの処理
 function count() {
     if (timeLeft > 0) {
         timeLeft--;
@@ -36,7 +36,6 @@ function count() {
         // 時間が0になったとき
         if (isWorkTime) {
             // 25分が終わったら
-            alert("25分の作業が終わりました！5分間の休憩に入ります。");
             cycleCount++;
             totalStudyMinutes += 25; // 合計時間に25分足す
             
@@ -51,8 +50,6 @@ function count() {
             document.getElementById("status-text").style.color = "#10b981";
         } else {
             // 5分が終わったら
-            alert("休憩終了！次の作業を始めましょう。");
-
             // 作業モード（25分）に戻す
             isWorkTime = true;
             timeLeft = 25 * 60;
