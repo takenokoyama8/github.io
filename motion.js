@@ -1,20 +1,29 @@
 // 変数の定義
 let timeLeft = 25 * 60; // 25分（秒単位）
-let timerId = null;     // タイマーを動かすための入れ物
-let isWorkTime = true;  // trueなら作業時間、falseなら休憩時間
-
-let cycleCount = 0;     // 完了したサイクル数
-let totalStudyMinutes = 0; // 合計勉強時間（分）
+let timerId = null;     // タイマーID
+let isWorkTime = true;  // trueなら作業、falseなら休憩
+let cycleCount = 0;     // 完了サイクル数
+let totalStudyMinutes = 0; // 合計勉強時間(分)
 
 // 画面の数字を更新する関数
 function updateDisplay() {
     let minutes = Math.floor(timeLeft / 60);
     let seconds = timeLeft % 60;
 
-    // 1桁のときに頭に「0」をつける処理
-    let minText = minutes < 10 ? "0" + minutes : minutes;
-    let secText = seconds < 10 ? "0" + seconds : seconds;
+    let minText = minutes;
+    let secText = seconds;
 
+    // 分が10未満なら、頭に「0」をつける
+    if (minutes < 10) {
+        minText = "0" + minutes;
+    }
+
+    // 秒が10未満なら、頭に「0」をつける
+    if (seconds < 10) {
+        secText = "0" + seconds;
+    }
+
+    // 画面の「timer」という要素に文字を表示する
     document.getElementById("timer").textContent = minText + ":" + secText;
 }
 
@@ -77,5 +86,5 @@ function resetTimer() {
     updateDisplay();
 }
 
-// ページを開いたときの初期表示
+// 初期表示
 updateDisplay();
